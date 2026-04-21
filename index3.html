@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menna Osama | Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-pink: #fce4ec;
+            --accent-rose: #ff8fa3;
+            --soft-purple: #e3d5ff;
+            --dark-text: #4a4a4a;
+            --glass-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            background-attachment: fixed;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--accent-rose);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li { margin-left: 25px; }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover { color: var(--accent-rose); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .hero h1 span { color: var(--accent-rose); }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            color: #666;
+            letter-spacing: 0.5px;
+        }
+
+        .btn {
+            margin-top: 35px;
+            padding: 14px 35px;
+            background: var(--accent-rose);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.4s;
+            box-shadow: 0 5px 20px rgba(255, 143, 163, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 143, 163, 0.6);
+        }
+
+        /* Sections Styling */
+        section { padding: 100px 10%; }
+
+        h2.section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--accent-rose);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Education Card */
+        .card-box {
+            background: var(--glass-bg);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            text-align: center;
+        }
+
+        .card-box h3 { color: var(--accent-rose); margin-bottom: 10px; }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+
+        .skill-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .skill-card i { font-size: 2.5rem; color: var(--accent-rose); margin-bottom: 15px; }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #f1f1f1;
+        }
+
+        .project-card:hover { transform: translateY(-10px); }
+        .project-info { padding: 30px; }
+        .project-info h3 { font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 1.5rem; color: #333; }
+        .project-info p { font-size: 0.95rem; color: #777; margin-bottom: 25px; min-height: 50px; }
+
+        /* Certifications List (Updated) */
+        .cert-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cert-item {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border-left: 5px solid var(--accent-rose);
+            transition: 0.3s;
+        }
+
+        .cert-item:hover { transform: translateX(10px); }
+        .cert-item i { font-size: 1.5rem; color: #ffca28; margin-right: 20px; }
+        .cert-content h4 { font-size: 1.1rem; color: #444; }
+        .cert-content span { font-size: 0.85rem; color: #999; }
+
+        /* Contact & Footer */
+        footer {
+            background: white;
+            padding: 80px 10% 40px;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item { font-size: 1rem; color: #555; }
+        .contact-item i { color: var(--accent-rose); margin-right: 8px; }
+
+        .social-links a {
+            font-size: 1.8rem;
+            margin: 0 15px;
+            color: var(--accent-rose);
+            transition: 0.3s;
+        }
+
+        .social-links a:hover { opacity: 0.7; transform: scale(1.1); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            nav ul { display: none; }
+            section { padding: 80px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <div class="logo">Menna Osama</div>
+        <ul>
+            <li><a href="#about">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certs">Certs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Hello, I'm <span>Menna</span></h1>
+        <p>A passionate Developer specializing in Front-End technologies and Artificial Intelligence. Transforming complex problems into elegant, user-friendly solutions.</p>
+        <a href="#projects" class="btn">Explore My Work</a>
+    </section>
+
+    <!-- Education -->
+    <section id="about">
+        <h2 class="section-title">Education</h2>
+        <div class="card-box">
+            <i class="fas fa-graduation-cap" style="font-size: 3rem; color: var(--accent-rose); margin-bottom: 20px;"></i>
+            <h3>Higher Institute for Information Systems & Computer Science</h3>
+            <p>6th of October City, Egypt</p>
+            <p style="margin-top: 15px; color: #888;">Major: Information Systems & Computer Science</p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" style="background: rgba(255, 143, 163, 0.05);">
+        <h2 class="section-title">Professional Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Front-End</h3>
+                <p>HTML5, CSS3, JavaScript, Vue.js</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI & Data</h3>
+                <p>Python, Machine Learning, NLP</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-cloud"></i>
+                <h3>Cloud</h3>
+                <p>Huawei Cloud Computing</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-tools"></i>
+                <h3>Tools</h3>
+                <p>Git, GitHub, Office Suite</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>🌸 Personal Portfolio</h3>
+                    <p>A chic, responsive website showcasing my tech stack and journey as a developer.</p>
+                    <a href="https://portfolio-sigma-nine-71.vercel.app/" target="_blank" class="btn" style="padding: 10px 25px; font-size: 0.8rem;">View Live</a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>🩺 Doctor Appointment</h3>
+                    <p>Advanced web application built with Vue.js for managing medical bookings efficiently.</p>
+                    <a href="https://doctor-appointment-kappa-pied.vercel.app/" target="_blank" class="btn" style="padding: 10px 25px; font-size: 0.8rem;">View Live</a>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>🥁 Java Drum App</h3>
+                    <p>An interactive desktop application for sound simulation using Java Swing and Audio libraries.</p>
+                    <a href="https://github.com/menna900/sound" target="_blank" class="btn" style="padding: 10px 25px; font-size: 0.8rem;">Source Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certs" style="background: rgba(227, 213, 255, 0.1);">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-container">
+            <div class="cert-item">
+                <i class="fas fa-award"></i>
+                <div class="cert-content">
+                    <h4>Huawei HCIA-AI Course</h4>
+                    <span>Mastering AI Fundamentals & Deep Learning (Certificate Pending)</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <i class="fas fa-cloud"></i>
+                <div class="cert-content">
+                    <h4>Huawei Cloud Computing</h4>
+                    <span>Exploring Cloud Infrastructure & Virtualization Services</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <i class="fas fa-check-circle"></i>
+                <div class="cert-content">
+                    <h4>ITI Training – Front-End Vue.js</h4>
+                    <span>Advanced Web Development with Vue.js Framework</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <i class="fab fa-meta"></i>
+                <div class="cert-content">
+                    <h4>Front-End Development – Meta (Coursera)</h4>
+                    <span>Professional certification in modern web standards - 2025</span>
+                </div>
+            </div>
+            <div class="cert-item">
+                <i class="fab fa-python"></i>
+                <div class="cert-content">
+                    <h4>Python Programming – Edraak</h4>
+                    <span>Foundational Python & Algorithm Design - 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <footer id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-item"><i class="fas fa-envelope"></i> mennaosama837@gmail.com</div>
+            <div class="contact-item"><i class="fas fa-phone"></i> 01149961668</div>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</div>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/menna900" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mennaosama143" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p style="margin-top: 50px; font-size: 0.85rem; color: #bbb;">Designed with ✨ for Menna Osama &copy; 2025</p>
+    </footer>
+
+</body>
+</html>
